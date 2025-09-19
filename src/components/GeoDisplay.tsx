@@ -13,13 +13,15 @@ export default function GeoDisplay() {
   return (
     <>
       <button
-        className="bg-white text-black p-2 rounded-md cursor-pointer active:opacity-90"
+        className="text-white p-2 border-1 rounded-md cursor-pointer active:opacity-90"
         onClick={requestGeolocation}
       >
         Get geolocation
       </button>
       <p>Your geolocation:</p>
-      <span className="bg-white text-black rounded-md p-1">{pos}</span>
+      <span className="bg-white text-black rounded-md p-3 font-mono">
+        {pos}
+      </span>
     </>
   );
 }
