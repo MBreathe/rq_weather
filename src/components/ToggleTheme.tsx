@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { SunMedium, Moon } from "lucide-react";
 
-export default function Toggle() {
+export default function ToggleTheme() {
   const [toggle, setToggle] = useState(false);
   return (
     <div
