@@ -1,18 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import { useUnitContext } from "@/app/context/UnitContext";
 
 export default function UnitToggleGroup() {
-  const [unit, setUnit] = useState<"C" | "F" | "K">("C");
-  const toggleUnit = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const newUnit = e.currentTarget.textContent;
-    if (newUnit === unit) {
-      return;
-    }
-    if (newUnit) {
-      setUnit(newUnit as "C" | "F" | "K");
-    }
-  };
-  console.log(unit);
+  const { unit, toggleUnit } = useUnitContext();
   return (
     <div className={"flex border-1 border-black text-black font-mono w-full"}>
       <button

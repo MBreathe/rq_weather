@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import SearchBar from "@/components/SearchBar";
-import ThemeSwitch from "@/components/ThemeSwitch";
-import UnitToggleGroup from "@/components/UnitToggleGroup";
 import BurgerMenu from "@/components/BurgerMenu";
+import HiddenMenu from "@/components/HiddenMenu";
 
 export default function Nav() {
   return (
@@ -32,10 +31,7 @@ export default function Nav() {
           <BurgerMenu />
         </div>
       </div>
-      <div className={"bg-white p-1 mt-1 rounded-md flex flex-col gap-1"}>
-        <UnitToggleGroup />
-        <ThemeSwitch />
-      </div>
+      <HiddenMenu />
     </nav>
   );
 }
