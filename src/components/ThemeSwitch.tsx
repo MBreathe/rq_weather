@@ -2,17 +2,17 @@
 import { useState } from "react";
 import { SunMedium, Moon } from "lucide-react";
 
-export default function ToggleTheme() {
+export default function ThemeSwitch() {
   const [toggle, setToggle] = useState(false);
   return (
     <div
       onClick={() => setToggle(!toggle)}
-      className="flex items-center text-neutral-50 border-1 rounded-full p-0.5 cursor-pointer h-10 w-20"
+      className="flex items-center bg-black rounded-full p-0.5 cursor-pointer h-9 w-22"
     >
       <div
         className={
-          "bg-neutral-50 text-neutral-950 rounded-full h-8 w-14 transition-transform duration-300 ease-in-out flex items-center justify-center" +
-          (toggle ? " translate-x-4.5" : "")
+          "bg-white text-neutral-950 rounded-full h-8 w-14 transition-transform duration-300 ease-in-out flex items-center justify-center" +
+          (toggle ? " translate-x-7" : "")
         }
       >
         {toggle ? (
