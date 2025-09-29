@@ -23,7 +23,6 @@ Highlight the main features of the project.
 ![Next.js](https://img.shields.io/badge/-Next.js-201f22?&logo=Next.js)
 ![React](https://img.shields.io/badge/-React-201f22?&logo=React)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-201f22?&logo=TypeScript)
-![RadixUI](https://img.shields.io/badge/-RadixUI-201f22?&logo=RadixUI)
 ![Tailwind CSS](https://img.shields.io/badge/-Tailwind%20CSS-201f22?&logo=Tailwind%20CSS)
 ![Vercel](https://img.shields.io/badge/-Vercel-201f22?&logo=Vercel)
 ![Better Auth](https://img.shields.io/badge/-BetterAuth-201f22?&logo=BetterAuth)
