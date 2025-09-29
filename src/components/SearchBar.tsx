@@ -7,7 +7,7 @@ export default function SearchBar() {
         <Search className={`w-5 h-5`} />
       </div>
       <input
-        className={`text-black font-sans placeholder:text-black ml-1 mr-1 outline-none w-full focus:placeholder:text-transparent`}
+        className={`text-black font-sans placeholder:text-black ml-1 mr-1 outline-none w-full focus:placeholder:text-transparent text-xl`}
         type={"text"}
         id={"search"}
         placeholder={"Search"}

@@ -1,7 +1,7 @@
 export enum Units {
-  Celsius = "metric",
-  Fahrenheit = "imperial",
-  Kelvin = "standard",
+  C = "metric",
+  F = "imperial",
+  K = "standard",
 }
 
 export interface CurrentWeather {

@@ -6,11 +6,11 @@ import HiddenMenu from "@/components/HiddenMenu";
 
 export default function Nav() {
   return (
-    <nav className={"fixed top-0 left-0 right-0 z-50 max-w-full m-1"}>
-      <div className={"flex gap-1"}>
+    <nav className={"fixed top-0 left-0 right-0 z-50 max-w-full m-0.5"}>
+      <div className={"flex gap-0.5"}>
         <div
           className={
-            "bg-white p-2 rounded-tl-xl rounded-bl-xl flex items-center justify-center flex-shrink-0"
+            "bg-white p-2 rounded-l-xl flex items-center justify-center flex-shrink-0"
           }
         >
           <Link href="/" className={"rounded-full"}>
@@ -24,7 +24,7 @@ export default function Nav() {
         </div>
         <div
           className={
-            "bg-white flex justify-between items-center gap-1 p-2 rounded-tr-xl rounded-br-xl w-full"
+            "bg-white flex justify-between items-center gap-1 p-2 rounded-r-xl w-full"
           }
         >
           <SearchBar />

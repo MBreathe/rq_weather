@@ -1,4 +1,5 @@
 import getWeather from "@/utils/getWeather";
+import { CustomError } from "@/models/CustomError";
 
 export async function POST(req: Request) {
   try {
@@ -10,11 +11,11 @@ export async function POST(req: Request) {
     return Response.json(weatherData);
   } catch (error) {
     console.error(error);
-    if (
-      error instanceof Error &&
-      error.message.includes("OPENWEATHER_API_KEY")
-    ) {
-      return Response.json({ error: "Server error" }, { status: 500 });
+    if (error instanceof CustomError) {
+      return Response.json(
+        { error: error.message },
+        { status: error.status || 500 },
+      );
     }
   }
 }

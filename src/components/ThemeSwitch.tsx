@@ -7,12 +7,12 @@ export default function ThemeSwitch() {
   return (
     <div
       onClick={toggleTheme}
-      className="flex items-center bg-black rounded-full p-0.5 cursor-pointer h-9 w-22"
+      className="flex items-center bg-black rounded-full p-0.5 cursor-pointer h-7 w-22"
     >
       <div
         className={
-          "bg-white text-neutral-950 rounded-full h-8 w-14 transition-transform duration-300 ease-in-out flex items-center justify-center" +
-          (theme === "dark" && " translate-x-7")
+          "bg-white text-neutral-950 rounded-full h-6 w-14 transition-transform duration-300 ease-in-out flex items-center justify-center" +
+          (theme === "dark" ? " translate-x-7" : "")
         }
       >
         {theme === "dark" ? (
