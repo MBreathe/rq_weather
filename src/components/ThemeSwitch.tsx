@@ -1,4 +1,3 @@
-"use client";
 import { SunMedium, Moon } from "lucide-react";
 import { useThemeContext } from "@/app/context/ThemeContext";
 

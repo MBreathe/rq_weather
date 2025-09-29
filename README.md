@@ -1,4 +1,4 @@
-# Weather App
+# rq_weather
 
 Short description of what the project does and its purpose.
 

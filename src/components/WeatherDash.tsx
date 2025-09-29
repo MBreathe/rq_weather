@@ -4,6 +4,7 @@ import { CurrentWeather } from "@/models/Weather";
 import fetcher from "@/utils/fetcher";
 import Image from "next/image";
 
+// FOR REFERRAL
 export function WeatherDash() {
   const [pos, setPos] = useState({ lat: 0, lon: 0, unit: "metric" });
   const [weatherData, setWeatherData] = useState<CurrentWeather | null>(null);
