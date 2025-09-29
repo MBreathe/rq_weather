@@ -8,7 +8,7 @@ export default function HiddenMenu() {
   const { navOpen } = navState;
   return (
     <div
-      className={`bg-white p-2 mt-0.5 rounded-md ${navOpen ? "flex flex-col gap-1" : "hidden"}`}
+      className={`bg-white p-2 mt-0.5 rounded-xl ${navOpen ? "flex flex-col gap-1" : "hidden"}`}
     >
       <UnitToggleGroup />
       <ThemeSwitch />
