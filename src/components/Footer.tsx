@@ -1,12 +1,13 @@
 import Image from "next/image";
-import { Github } from "lucide-react";
+import Link from "next/link";
 
+// TODO: Make it look better and add more info
 export default function Footer() {
   return (
-    <footer className={"flex font-mono w-full gap-0.5"}>
+    <footer className={"flex font-mono w-full gap-0.5 mt-0.5"}>
       <div
         className={
-          "flex items-center justify-center bg-white rounded-l-xl p-2 flex-shrink-0 h-full"
+          "flex flex-col items-center justify-center bg-white text-black rounded-l-xl p-2 flex-shrink-0"
         }
       >
         <Image
@@ -16,18 +17,19 @@ export default function Footer() {
           height={50}
           className={"rounded-full"}
         />
+        <span>rq_weather</span>
       </div>
-      <div className={"bg-white text-black rounded-r-xl p-2 w-full"}>
+      <div
+        className={
+          "bg-white text-black rounded-r-xl p-2 w-full flex flex-col gap-0.5 justify-center"
+        }
+      >
         <p>Designed and coded by</p>
-        <div className={"flex gap-1 items-center"}>
+        <Link href={"https://github.com/MBreathe"} target={"_blank"}>
           <p className={"bg-black text-white rounded-full p-1 pl-2 pr-2 w-max"}>
             MBreathe
           </p>
-          <Github
-            className={"bg-black text-white rounded-full p-1"}
-            size={32}
-          />
-        </div>
+        </Link>
       </div>
     </footer>
   );

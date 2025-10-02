@@ -10,26 +10,34 @@ export default function WeatherWidget() {
 
   useEffect(() => {
     const getCurrentWeather = async () => {
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          lat: "35.6764",
-          lon: "139.6500",
-          unit: "metric",
-        }),
-      };
+      const cachedWeather = localStorage.getItem("weather");
+      if (cachedWeather) {
+        const parsedWeather = JSON.parse(cachedWeather);
+        setWeather(parsedWeather);
+        return;
+      } else {
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            lat: "35.6764",
+            lon: "139.6500",
+            unit: Units[unit],
+          }),
+        };
 
-      try {
-        const data: CurrentWeather = await fetcher(
-          "api/weather/current",
-          options,
-        );
-        setWeather(data);
-      } catch (e) {
-        console.error(e);
+        try {
+          const data: CurrentWeather = await fetcher(
+            "api/weather/current",
+            options,
+          );
+          setWeather(data);
+          localStorage.setItem("weather", JSON.stringify(data));
+        } catch (e) {
+          console.error(e);
+        }
       }
     };
 
@@ -46,7 +54,7 @@ export default function WeatherWidget() {
             "bg-white text-black flex items-center gap-1 p-2 rounded-xl w-full justify-between"
           }
         >
-          <div className={"flex gap-0.5 items-center"}>
+          <div className={"flex gap-1 items-center"}>
             <h1 className={"text-5xl font-medium"}>
               {Math.floor(weather.main.temp)}
             </h1>
