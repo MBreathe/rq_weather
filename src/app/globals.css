@@ -15,3 +15,6 @@ a {
 button {
   cursor: pointer;
 }
+button:focus-visible {
+  outline: none;
+}

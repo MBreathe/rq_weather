@@ -28,7 +28,8 @@ export async function POST(req: Request) {
     console.log(response.usageMetadata);
 
     return Response.json(response.text);
-  } catch (e) {
+  } catch (error) {
+    console.error(error);
     return Response.json(
       { error: "Error generating response" },
       { status: 500 },

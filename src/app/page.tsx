@@ -7,9 +7,7 @@ export default function Landing() {
     <main>
       <TimeWidget />
       <WeatherWidget />
-      <div
-        className={"bg-white text-black p-2 rounded-xl mt-0.5 mb-0.5 font-mono"}
-      >
+      <div className={"bg-white text-black p-2 rounded-xl mt-0.5 mb-0.5"}>
         <div
           className={"flex flex-col font-sans text-2xl leading-7 font-medium"}
         >

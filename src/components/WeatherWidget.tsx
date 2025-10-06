@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CurrentWeather, Units } from "@/models/Weather";
 import fetcher from "@/utils/fetcher";
 import { useUnitContext } from "@/app/context/UnitContext";
+import Image from "next/image";
 
 export default function WeatherWidget() {
   const [weather, setWeather] = useState<CurrentWeather | null>(null);
@@ -45,7 +46,7 @@ export default function WeatherWidget() {
 
     const intervalId = setInterval(getCurrentWeather, 10 * 60 * 1000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [unit]);
   return (
     <div className={"flex gap-0.5 font-mono leading-none mt-0.5 w-full"}>
       {weather && (
@@ -69,7 +70,7 @@ export default function WeatherWidget() {
               "flex items-center justify-center bg-black h-12 w-12 rounded-md"
             }
           >
-            <img
+            <Image
               src={weather.weather[0].icon}
               alt="weather icon"
               className={"w-10 h-10"}
