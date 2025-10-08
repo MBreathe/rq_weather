@@ -128,6 +128,10 @@ export class CurrentWeatherData {
       unit,
     };
   }
+
+  getWeatherData() {
+    return this.currentWeather;
+  }
 }
 export class ForecastWeatherData {
   forecastWeather: ForecastWeather;
@@ -136,5 +140,9 @@ export class ForecastWeatherData {
       ...forecastWeatherResponse,
       unit,
     };
+  }
+
+  getWeatherData() {
+    return this.forecastWeather;
   }
 }
