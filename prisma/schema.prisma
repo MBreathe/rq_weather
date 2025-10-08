@@ -31,24 +31,21 @@ type Preference {
 }
 
 model User {
-  id          String     @id @default(auto()) @map("_id") @db.ObjectId
-  admin       Boolean    @default(false)
-  username    String     @unique
-  email       String     @unique
-  password    String
-  location    Location?
-  savedCities String[]
-  followedIds String[]   @db.ObjectId
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
-  preferences Preference
+  id             String     @id @map("_id")
+  name           String
+  email          String
+  emailVerified  Boolean    @default(false)
+  image          String?
+  location       Location?
+  savedLocations String[]   @default([])
+  preference     Preference
+  following      String[]   @default([])
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @default(now()) @updatedAt
+  sessions       Session[]
+  accounts       Account[]
 
-  name          String
-  emailVerified Boolean   @default(false)
-  image         String?
-  sessions      Session[]
-  accounts      Account[]
-
+  @@unique([email])
   @@map("user")
 }
 
@@ -60,7 +57,7 @@ model Session {
   updatedAt DateTime @updatedAt
   ipAddress String?
   userAgent String?
-  userId    String   @db.ObjectId
+  userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([token])
@@ -71,7 +68,7 @@ model Account {
   id                    String    @id @map("_id")
   accountId             String
   providerId            String
-  userId                String    @db.ObjectId
+  userId                String
   user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   accessToken           String?
   refreshToken          String?

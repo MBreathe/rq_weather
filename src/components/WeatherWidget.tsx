@@ -73,7 +73,8 @@ export default function WeatherWidget() {
             <Image
               src={weather.weather[0].icon}
               alt="weather icon"
-              className={"w-10 h-10"}
+              width={40}
+              height={40}
             />
           </div>
         </div>

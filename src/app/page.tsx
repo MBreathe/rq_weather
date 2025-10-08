@@ -1,10 +1,14 @@
 import TimeWidget from "@/components/TimeWidget";
 import WeatherWidget from "@/components/WeatherWidget";
 import Link from "next/link";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import React from "react";
 
 export default function Landing() {
   return (
     <main>
+      <Nav />
       <TimeWidget />
       <WeatherWidget />
       <div className={"bg-white text-black p-2 rounded-xl mt-0.5 mb-0.5"}>
@@ -35,6 +39,7 @@ export default function Landing() {
           Sign-up
         </Link>
       </div>
+      <Footer />
     </main>
   );
 }
