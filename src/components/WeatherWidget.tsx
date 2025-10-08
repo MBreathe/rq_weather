@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import { CurrentWeather, Units } from "@/models/Weather";
+import { CurrentWeatherResponse, Units } from "@/models/Weather";
 import fetcher from "@/utils/fetcher";
 import { useUnitContext } from "@/app/context/UnitContext";
 import Image from "next/image";
 
 export default function WeatherWidget() {
-  const [weather, setWeather] = useState<CurrentWeather | null>(null);
+  const [weather, setWeather] = useState<CurrentWeatherResponse | null>(null);
   const { unit } = useUnitContext();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function WeatherWidget() {
         };
 
         try {
-          const data: CurrentWeather = await fetcher(
+          const data: CurrentWeatherResponse = await fetcher(
             "api/weather/current",
             options,
           );

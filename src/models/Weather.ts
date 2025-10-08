@@ -4,7 +4,7 @@ export enum Units {
   K = "standard",
 }
 
-export interface CurrentWeather {
+export interface CurrentWeatherResponse {
   coord: {
     lon: number;
     lat: number;
@@ -54,7 +54,7 @@ export interface CurrentWeather {
   name: string;
   cod: number;
 }
-export interface ForecastWeather {
+export interface ForecastWeatherResponse {
   cod: number;
   message: number;
   cnt: number;
@@ -111,4 +111,30 @@ export interface ForecastWeather {
     sunrise: number;
     sunset: number;
   };
+}
+
+export interface CurrentWeather extends CurrentWeatherResponse {
+  unit: Units;
+}
+export interface ForecastWeather extends ForecastWeatherResponse {
+  unit: Units;
+}
+
+export class CurrentWeatherData {
+  currentWeather: CurrentWeather;
+  constructor(currentWeatherResponse: CurrentWeatherResponse, unit: Units) {
+    this.currentWeather = {
+      ...currentWeatherResponse,
+      unit,
+    };
+  }
+}
+export class ForecastWeatherData {
+  forecastWeather: ForecastWeather;
+  constructor(forecastWeatherResponse: ForecastWeatherResponse, unit: Units) {
+    this.forecastWeather = {
+      ...forecastWeatherResponse,
+      unit,
+    };
+  }
 }

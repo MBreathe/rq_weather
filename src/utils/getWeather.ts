@@ -1,4 +1,7 @@
-import { CurrentWeather, ForecastWeather } from "@/models/Weather";
+import {
+  CurrentWeatherResponse,
+  ForecastWeatherResponse,
+} from "@/models/Weather";
 import fetcher from "@/utils/fetcher";
 import { Geocoding } from "@/models/Geocoding";
 import { CustomError } from "@/models/CustomError";
@@ -36,12 +39,12 @@ export default async function getWeather(req: Request, baseUrl: string) {
   }
 
   if (baseUrl === "https://api.openweathermap.org/data/2.5/weather") {
-    const weatherData: CurrentWeather = await fetcher(url);
+    const weatherData: CurrentWeatherResponse = await fetcher(url);
     weatherData.name = city[0].name;
     weatherData.weather[0].icon = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`;
     return weatherData;
   } else {
-    const weatherData: ForecastWeather = await fetcher(url);
+    const weatherData: ForecastWeatherResponse = await fetcher(url);
     weatherData.city.name = city[0].name;
     weatherData.list.forEach(
       (item) =>

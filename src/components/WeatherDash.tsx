@@ -1,13 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
-import { CurrentWeather } from "@/models/Weather";
+import { CurrentWeatherResponse } from "@/models/Weather";
 import fetcher from "@/utils/fetcher";
 import Image from "next/image";
 
 // FOR REFERRAL
 export function WeatherDash() {
   const [pos, setPos] = useState({ lat: 0, lon: 0, unit: "metric" });
-  const [weatherData, setWeatherData] = useState<CurrentWeather | null>(null);
+  const [weatherData, setWeatherData] = useState<CurrentWeatherResponse | null>(
+    null,
+  );
 
   const getPosition = () => {
     if (navigator.geolocation) {
@@ -27,7 +29,7 @@ export function WeatherDash() {
     }
 
     const fetchWeather = async () => {
-      const data: CurrentWeather = await fetcher(
+      const data: CurrentWeatherResponse = await fetcher(
         "http://localhost:3000/api/weather/current",
         { method: "POST", body: JSON.stringify(pos) },
       );
