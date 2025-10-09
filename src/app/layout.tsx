@@ -32,7 +32,7 @@ export default function RootLayout({
         <UnitProvider>
           <NavProvider>
             <body
-              className={`${geistSans.variable} ${geistMono.variable} antialiased p-0.5 mt-17`}
+              className={`${geistSans.variable} ${geistMono.variable} antialiased p-0.5`}
             >
               {children}
             </body>

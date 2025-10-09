@@ -1,6 +1,9 @@
 import {
+  CurrentWeatherData,
   CurrentWeatherResponse,
+  ForecastWeatherData,
   ForecastWeatherResponse,
+  RequestBody,
 } from "@/models/Weather";
 import fetcher from "@/utils/fetcher";
 import { Geocoding } from "@/models/Geocoding";
@@ -12,7 +15,7 @@ export default async function getWeather(req: Request, baseUrl: string) {
     throw new CustomError("OPENWEATHER_API_KEY required", 500);
   }
 
-  const { lat, lon, unit } = await req.json();
+  const { lat, lon, unit } = (await req.json()) as RequestBody;
 
   if (!lat || !lon || !unit) {
     throw new CustomError("Latitude, longitude, and unit are required", 400);
@@ -38,18 +41,14 @@ export default async function getWeather(req: Request, baseUrl: string) {
     throw new CustomError("Error fetching geocoding data", 500);
   }
 
+  let weatherData: CurrentWeatherData | ForecastWeatherData;
   if (baseUrl === "https://api.openweathermap.org/data/2.5/weather") {
-    const weatherData: CurrentWeatherResponse = await fetcher(url);
-    weatherData.name = city[0].name;
-    weatherData.weather[0].icon = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`;
-    return weatherData;
+    const response: CurrentWeatherResponse = await fetcher(url);
+    weatherData = new CurrentWeatherData(response, unit);
   } else {
-    const weatherData: ForecastWeatherResponse = await fetcher(url);
-    weatherData.city.name = city[0].name;
-    weatherData.list.forEach(
-      (item) =>
-        (item.weather[0].icon = `https://openweathermap.org/img/wn/${item.weather[0].icon}@4x.png`),
-    );
-    return weatherData;
+    const response: ForecastWeatherResponse = await fetcher(url);
+    weatherData = new ForecastWeatherData(response, unit);
   }
+  weatherData.setCityName(city[0].name);
+  return weatherData.getWeatherData();
 }

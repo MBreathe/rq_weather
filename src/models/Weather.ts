@@ -4,6 +4,12 @@ export enum Units {
   K = "standard",
 }
 
+export interface RequestBody {
+  lat: number;
+  lon: number;
+  unit: Units;
+}
+
 export interface CurrentWeatherResponse {
   coord: {
     lon: number;
@@ -127,10 +133,14 @@ export class CurrentWeatherData {
       ...currentWeatherResponse,
       unit,
     };
+    this.currentWeather.weather[0].icon = `https://openweathermap.org/img/wn/${this.currentWeather.weather[0].icon}@4x.png`;
   }
 
   getWeatherData() {
     return this.currentWeather;
+  }
+  setCityName(cityName: string) {
+    this.currentWeather.name = cityName;
   }
 }
 export class ForecastWeatherData {
@@ -140,9 +150,16 @@ export class ForecastWeatherData {
       ...forecastWeatherResponse,
       unit,
     };
+    this.forecastWeather.list.forEach(
+      (item) =>
+        (item.weather[0].icon = `https://openweathermap.org/img/wn/${item.weather[0].icon}@4x.png`),
+    );
   }
 
   getWeatherData() {
     return this.forecastWeather;
+  }
+  setCityName(cityName: string) {
+    this.forecastWeather.city.name = cityName;
   }
 }

@@ -7,7 +7,7 @@ import React from "react";
 
 export default function Landing() {
   return (
-    <main>
+    <main className={"mt-17"}>
       <Nav />
       <TimeWidget />
       <WeatherWidget />
