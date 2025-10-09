@@ -34,7 +34,7 @@ export default function Landing() {
         </h2>
         <Link
           className={"bg-black text-white rounded-xl p-3 text-2xl"}
-          href={"/login"}
+          href={"/register"}
         >
           Sign-up
         </Link>

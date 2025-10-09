@@ -32,7 +32,7 @@ export default function RootLayout({
         <UnitProvider>
           <NavProvider>
             <body
-              className={`${geistSans.variable} ${geistMono.variable} antialiased p-0.5`}
+              className={`${geistSans.variable} ${geistMono.variable} antialiased p-0.5 min-h-screen`}
             >
               {children}
             </body>

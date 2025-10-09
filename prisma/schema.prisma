@@ -13,35 +13,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Units {
-  standard
-  metric
-  imperial
-}
-
 type Location {
   city      String?
   latitude  Float?
   longitude Float?
 }
 
-type Preference {
-  units         Units   @default(metric)
-  notifications Boolean @default(true)
-}
-
 model User {
-  id             String     @id @map("_id")
+  id             String    @id @map("_id")
   name           String
   email          String
-  emailVerified  Boolean    @default(false)
+  emailVerified  Boolean   @default(false)
   image          String?
   location       Location?
-  savedLocations String[]   @default([])
-  preference     Preference
-  following      String[]   @default([])
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @default(now()) @updatedAt
+  savedLocations String[]  @default([])
+  followers      String[]  @default([])
+  following      String[]  @default([])
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @default(now()) @updatedAt
   sessions       Session[]
   accounts       Account[]
 
