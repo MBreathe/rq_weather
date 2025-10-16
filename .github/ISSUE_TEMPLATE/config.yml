@@ -20,3 +20,8 @@ issue_templates:
     title: "[General]: "
     labels: ["general"]
     body: "./ISSUE_TEMPLATE/general_report.md"
+  - name: "User Story"
+    description: "Create a user story."
+    title: "[Story]: "
+    labels: ["story"]
+    body: "./ISSUE_TEMPLATE/user_story.md"
