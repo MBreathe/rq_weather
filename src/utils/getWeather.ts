@@ -38,6 +38,7 @@ export default async function getWeather(req: Request, baseUrl: string) {
       `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=${1}&appid=${OPENWEATHER_API_KEY}`,
     );
   } catch (e) {
+    console.error(e);
     throw new CustomError("Error fetching geocoding data", 500);
   }
 

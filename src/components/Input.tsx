@@ -19,16 +19,8 @@ export default function Input({
   required = false,
   placeholder = "",
   autoComplete,
-  onValueChange,
 }: InputProps) {
   const [value, setValue] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    if (onValueChange) {
-      onValueChange(e.target.value);
-    }
-  };
 
   return (
     <div className={"flex flex-col w-full"}>
