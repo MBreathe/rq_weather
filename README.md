@@ -24,7 +24,7 @@ Highlight the main features of the project.
 ![React](https://img.shields.io/badge/-React-201f22?&logo=React)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-201f22?&logo=TypeScript)
 ![Tailwind CSS](https://img.shields.io/badge/-Tailwind%20CSS-201f22?&logo=Tailwind%20CSS)
-![Netlify](https://img.shields.io/badge/-Netlify-201f22?&logo=Netlify)
+![Vercel](https://img.shields.io/badge/-Vercel-201f22?&logo=Vercel)
 ![Better Auth](https://img.shields.io/badge/-BetterAuth-201f22?&logo=BetterAuth)
 ![Prisma](https://img.shields.io/badge/-Prisma-201f22?&logo=Prisma)
 ![MongoDB](https://img.shields.io/badge/-MongoDb-201f22?&logo=MongoDB)
